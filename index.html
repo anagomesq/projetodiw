@@ -38,3 +38,173 @@
         <a href="https://metmuseum.github.io/" target="_blank" rel="noopener">API de Coleção do Metropolitan Museum of Art</a>.
       </p>
     </section>
+
+    <section id="cadastro">
+      <h2>Cadastrar artefato</h2>
+
+      <form>
+        <p>
+          <label for="nome">Nome</label><br>
+          <input type="text" id="nome" name="nome">
+        </p>
+
+        <p>
+          <label for="categoria">Categoria</label><br>
+          <select id="categoria" name="categoria">
+            <option value="">Selecione</option>
+            <option value="joia">Joia</option>
+            <option value="ceramica">Cerâmica</option>
+            <option value="estatua">Estátua</option>
+            <option value="papiro">Papiro</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="material">Material</label><br>
+          <input type="text" id="material" name="material">
+        </p>
+
+        <p>
+          <label for="periodo">Período histórico</label><br>
+          <select id="periodo" name="periodo">
+            <option value="">Selecione</option>
+            <option value="antigo">Reino Antigo</option>
+            <option value="medio">Reino Médio</option>
+            <option value="novo">Reino Novo</option>
+            <option value="tardio">Período Tardio</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="localizacao">Localização na tumba</label><br>
+          <input type="text" id="localizacao" name="localizacao">
+        </p>
+
+        <p>
+          <label for="conservacao">Estado de conservação</label><br>
+          <select id="conservacao" name="conservacao">
+            <option value="">Selecione</option>
+            <option value="bom">Bom</option>
+            <option value="regular">Regular</option>
+            <option value="ruim">Ruim</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="data">Data da descoberta</label><br>
+          <input type="date" id="data" name="data">
+        </p>
+
+        <p>
+          <label for="descricao">Descrição</label><br>
+          <textarea id="descricao" name="descricao" rows="4" cols="40"></textarea>
+        </p>
+
+        <button type="submit">Salvar</button>
+        <button type="reset">Limpar</button>
+      </form>
+    </section>
+
+    <section id="artefatos">
+      <h2>Artefatos cadastrados</h2>
+
+      <form>
+        <label for="busca">Pesquisar</label>
+        <input type="search" id="busca" name="busca">
+
+        <label for="filtro">Filtrar por categoria</label>
+        <select id="filtro" name="filtro">
+          <option value="">Todas</option>
+          <option value="joia">Joia</option>
+          <option value="ceramica">Cerâmica</option>
+          <option value="estatua">Estátua</option>
+          <option value="papiro">Papiro</option>
+        </select>
+
+        <label for="ordem">Ordenar por</label>
+        <select id="ordem" name="ordem">
+          <option value="nome">Nome</option>
+          <option value="data">Data da descoberta</option>
+        </select>
+
+        <button type="submit">Aplicar</button>
+      </form>
+
+      <table border="1" cellpadding="5">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Período</th>
+            <th>Conservação</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Escaravelho de lápis-lazúli</td>
+            <td>Joia</td>
+            <td>Reino Novo</td>
+            <td>Bom</td>
+            <td>
+              <button type="button">Ver detalhes</button>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Vaso canópico</td>
+            <td>Cerâmica</td>
+            <td>Período Tardio</td>
+            <td>Regular</td>
+            <td>
+              <button type="button">Ver detalhes</button>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Fragmento de papiro</td>
+            <td>Papiro</td>
+            <td>Reino Médio</td>
+            <td>Ruim</td>
+            <td>
+              <button type="button">Ver detalhes</button>
+              <button type="button">Editar</button>
+              <button type="button">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="detalhes">
+      <h2>Detalhes do artefato</h2>
+
+      <article>
+        <h3>Escaravelho de lápis-lazúli</h3>
+        <ul>
+          <li>Categoria: Joia</li>
+          <li>Material: Lápis-lazúli</li>
+          <li>Período histórico: Reino Novo</li>
+          <li>Localização na tumba: Câmara funerária</li>
+          <li>Estado de conservação: Bom</li>
+          <li>Data da descoberta: 12/03/2026</li>
+          <li>Descrição: Amuleto em forma de escaravelho encontrado sobre o peito da múmia.</li>
+        </ul>
+      </article>
+    </section>
+
+  </main>
+
+  <aside>
+    <h2>Referência histórica</h2>
+    <p>Em breve: objetos do acervo egípcio do Metropolitan Museum of Art.</p>
+  </aside>
+
+  <footer>
+    <p>Projeto acadêmico - Etapa 1 (HTML)</p>
+  </footer>
+
+</body>
+</html>
