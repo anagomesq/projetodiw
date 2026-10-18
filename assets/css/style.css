@@ -231,3 +231,95 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #ecdfb5;
 }
+
+article ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+article li {
+  padding: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+}
+
+article li.largo {
+  grid-column: 1 / -1;
+}
+
+
+.mensagem-sucesso,
+.mensagem-erro,
+.mensagem-aviso {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-left: 5px solid;
+  border-radius: 0.5rem;
+}
+
+.mensagem-sucesso {
+  color: #1b4332;
+  background-color: #e3f2e8;
+  border-color: #2d6a4f;
+}
+
+.mensagem-erro {
+  color: #7a1a1d;
+  background-color: #fbe4e4;
+  border-color: #9b2226;
+}
+
+.mensagem-aviso {
+  color: #5c3b00;
+  background-color: #fff3d6;
+  border-color: #8a5a00;
+}
+
+.estado-vazio {
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px dashed var(--borda);
+  border-radius: 0.5rem;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+  color: var(--fundo);
+  background-color: var(--texto);
+}
+
+footer p {
+  margin: 0;
+}
+
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-cadastro {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  section,
+  aside {
+    padding: 1rem;
+  }
+
+  
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
