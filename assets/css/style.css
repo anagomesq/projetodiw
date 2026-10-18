@@ -101,7 +101,7 @@ aside {
   border-top: 4px solid var(--dourado);
 }
 
-/* ===== Formulários ===== */
+
 label {
   display: block;
   margin-bottom: 0.25rem;
@@ -124,7 +124,6 @@ textarea:hover {
   border-color: var(--azul);
 }
 
-/* Cadastro: Grid com 2 colunas */
 .form-cadastro {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -137,4 +136,73 @@ textarea:hover {
 
   }
 
-  
+.form-busca {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-busca .campo {
+  flex: 1 1 12rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font: inherit;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: var(--azul);
+  border: 2px solid var(--azul);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #16294a;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secundario {
+  color: var(--azul);
+  background-color: transparent;
+}
+
+.btn-secundario:hover {
+  color: #ffffff;
+}
+
+.btn-editar {
+  background-color: #8a5a00;
+  border-color: #8a5a00;
+}
+
+.btn-editar:hover {
+  background-color: #6b4600;
+}
+
+.btn-excluir {
+  background-color: #9b2226;
+  border-color: #9b2226;
+}
+
+.btn-excluir:hover {
+  background-color: #741a1d;
+}
+
+.acoes,
+.acoes-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
