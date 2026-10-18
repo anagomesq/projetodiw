@@ -72,3 +72,69 @@ nav a {
 nav a:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+.layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1.5rem;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+section,
+aside {
+  padding: 1.5rem;
+  background-color: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+}
+
+aside {
+  align-self: start;
+  border-top: 4px solid var(--dourado);
+}
+
+/* ===== Formulários ===== */
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font: inherit;
+  border: 2px solid var(--borda);
+  border-radius: 0.5rem;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--azul);
+}
+
+/* Cadastro: Grid com 2 colunas */
+.form-cadastro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.campo-largo,
+.acoes-form {
+  grid-column: 1 / -1;
+
+  }
+
+  
