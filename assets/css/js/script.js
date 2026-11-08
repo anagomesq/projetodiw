@@ -23,3 +23,25 @@ formulario.addEventListener("submit", function(event) {
 
     alert("Artefato cadastrado!");
 });
+
+function listarArtefatos() {
+    tabela.innerHTML = "";
+
+    artefatos.forEach(function(artefato, index) {
+        const linha = document.createElement("tr");
+
+        linha.innerHTML = `
+            <td>${artefato.nome}</td>
+            <td>${artefato.categoria}</td>
+            <td>${artefato.periodo}</td>
+            <td>${artefato.conservacao}</td>
+            <td>
+                <button onclick="verDetalhes(${index})">Ver</button>
+            </td>
+        `;
+
+        tabela.appendChild(linha);
+    });
+}
+listarArtefatos();
+
