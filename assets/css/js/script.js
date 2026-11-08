@@ -1,10 +1,25 @@
-let artefatos = [];
+let artefatos = JSON.parse(localStorage.getItem("artefatos")) || [];
+
+let indiceEdicao = null;
 
 const formulario = document.getElementById("formCadastro");
 const tabela = document.getElementById("listaArtefatos");
 
-formulario.addEventListener("submit", function(event) {
-    event.preventDefault();
+const busca = document.getElementById("busca");
+const filtro = document.getElementById("filtro");
+const ordem = document.getElementById("ordem");
+
+
+
+function salvarDados() {
+    localStorage.setItem("artefatos", JSON.stringify(artefatos));
+}
+
+
+
+formulario.addEventListener("submit", function(evento) {
+
+    evento.preventDefault();
 
     const artefato = {
         nome: document.getElementById("nome").value,
@@ -17,12 +32,28 @@ formulario.addEventListener("submit", function(event) {
         descricao: document.getElementById("descricao").value
     };
 
-    artefatos.push(artefato);
+    if (indiceEdicao === null) {
+
+        artefatos.push(artefato);
+        alert("Artefato cadastrado com sucesso!");
+
+    } else {
+
+        artefatos[indiceEdicao] = artefato;
+        indiceEdicao = null;
+
+        document.getElementById("btnSalvar").textContent = "Salvar";
+
+        alert("Artefato atualizado com sucesso!");
+    }
+
+    salvarDados();
+    listarArtefatos();
 
     formulario.reset();
 
-    alert("Artefato cadastrado!");
 });
+
 
 function listarArtefatos() {
     tabela.innerHTML = "";
@@ -43,5 +74,24 @@ function listarArtefatos() {
         tabela.appendChild(linha);
     });
 }
-listarArtefatos();
+
+function verDetalhes(indice) {
+
+    const item = artefatos[indice];
+
+    document.getElementById("conteudoDetalhes").innerHTML = `
+        <h3>${item.nome}</h3>
+
+        <ul>
+            <li>Categoria: ${item.categoria}</li>
+            <li>Material: ${item.material}</li>
+            <li>Período: ${item.periodo}</li>
+            <li>Localização: ${item.localizacao}</li>
+            <li>Conservação: ${item.conservacao}</li>
+            <li>Data: ${item.data}</li>
+            <li>Descrição: ${item.descricao}</li>
+        </ul>
+    `;
+
+}
 
