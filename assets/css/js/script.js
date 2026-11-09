@@ -212,3 +212,4 @@ document.getElementById("formAPI").addEventListener("submit", async function(eve
 
 });
 
+listarArtefatos();
