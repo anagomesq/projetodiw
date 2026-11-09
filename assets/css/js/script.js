@@ -95,3 +95,23 @@ function verDetalhes(indice) {
 
 }
 
+function editarArtefato(indice) {
+
+    const item = artefatos[indice];
+
+    document.getElementById("nome").value = item.nome;
+    document.getElementById("categoria").value = item.categoria;
+    document.getElementById("material").value = item.material;
+    document.getElementById("periodo").value = item.periodo;
+    document.getElementById("localizacao").value = item.localizacao;
+    document.getElementById("conservacao").value = item.conservacao;
+    document.getElementById("data").value = item.data;
+    document.getElementById("descricao").value = item.descricao;
+
+    indiceEdicao = indice;
+
+    document.getElementById("btnSalvar").textContent = "Atualizar";
+
+    document.getElementById("cadastro").scrollIntoView();
+
+}
