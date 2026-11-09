@@ -129,3 +129,86 @@ function excluirArtefato(indice) {
     }
 
 }
+
+busca.addEventListener("input", listarArtefatos);
+filtro.addEventListener("change", listarArtefatos);
+ordem.addEventListener("change", listarArtefatos);
+
+
+document.getElementById("formAPI").addEventListener("submit", async function(evento) {
+
+    evento.preventDefault();
+
+    const termo = document.getElementById("buscaAPI").value;
+
+    const resultadosAPI = document.getElementById("resultadosAPI");
+
+    resultadosAPI.innerHTML = "Pesquisando...";
+
+    try {
+
+        const resposta = await fetch(
+            `https://collectionapi.metmuseum.org/public/collection/v1.1/search?q=${encodeURIComponent(termo)}&departmentId=10`
+        );
+
+        const dados = await resposta.json();
+
+        resultadosAPI.innerHTML = "";
+
+        if (!dados.objectIDs) {
+            resultadosAPI.innerHTML = "Nenhum artefato encontrado.";
+            return;
+        }
+
+        const ids = dados.objectIDs.slice(0, 5);
+
+        for (let id of ids) {
+
+            const respostaObjeto = await fetch(
+                `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`
+            );
+
+            const objeto = await respostaObjeto.json();
+
+            const artigo = document.createElement("article");
+
+            artigo.innerHTML = `
+                <h3>${objeto.title}</h3>
+
+                <p>Material: ${objeto.medium || "Não informado"}</p>
+
+                <button type="button">Adicionar ao sistema</button>
+            `;
+
+            artigo.querySelector("button").addEventListener("click", function() {
+
+                artefatos.push({
+                    nome: objeto.title,
+                    categoria: "estatua",
+                    material: objeto.medium || "Não informado",
+                    periodo: "nao-identificado",
+                    localizacao: "Não informada",
+                    conservacao: "regular",
+                    data: new Date().toISOString().slice(0, 10),
+                    descricao: "Artefato importado do Metropolitan Museum."
+                });
+
+                salvarDados();
+                listarArtefatos();
+
+                alert("Artefato adicionado com sucesso!");
+
+            });
+
+            resultadosAPI.appendChild(artigo);
+
+        }
+
+    } catch (erro) {
+
+        resultadosAPI.innerHTML = "Erro ao consultar a API.";
+
+    }
+
+});
+
