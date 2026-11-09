@@ -115,3 +115,17 @@ function editarArtefato(indice) {
     document.getElementById("cadastro").scrollIntoView();
 
 }
+
+function excluirArtefato(indice) {
+
+    if (confirm("Deseja realmente excluir este artefato?")) {
+
+        artefatos.splice(indice, 1);
+
+        salvarDados();
+        listarArtefatos();
+
+        alert("Artefato excluído!");
+    }
+
+}
